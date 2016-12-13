@@ -1,18 +1,14 @@
 package distribucion;
 
 
-/**
- * 
- * @author Dariel
- *
- */
+
 public class Distribucion {
 	/**
 	 * Para todo valor de v[] tendremos:
 	 * 		-si:v[i]<=frontera -> en v[] todo j perteneciente a [0,i] cumple v[j]<=0
 	 * 		-si:v[i]> frontera -> en v[] todo j perteneciente a [i, v.length-1] cumple v[j]>0
 	 * Coste: O(n)
-	 * @param v T array
+	 * @param v T
 	 * @param frontera T
 	 * 
 	 */
@@ -37,7 +33,7 @@ public class Distribucion {
 	 * 		-si:v[i]<=frontera -> en v[] todo j perteneciente a [0,i] cumple v[j]<=0
 	 * 		-si:v[i]> frontera -> en v[] todo j perteneciente a [i, v.length-1] cumple v[j]>0
 	 * Coste: O(n)
-	 * @param v T array
+	 * @param v int
 	 * @param frontera int
 	 * 
 	 */
