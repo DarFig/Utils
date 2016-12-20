@@ -58,9 +58,25 @@ public class Main {
 			System.out.println("Prueba incorrecta");
 		}
 	}
+	public static void pruebaIntercambio(){
+		System.out.println("=================================");
+		int v1[] = {3, 4, 4, 5, 8, 10, 15, 20, 30, 40};
+		int v[] = {10, 20, 15, 4, 5, 40, 8, 4, 30, 3};
+		System.out.print("Antes: ");
+		imprimir(v);
+		Ordenacion.intercambio(v);
+		System.out.print("Ordenado: ");
+		imprimir(v);
+		if(compare(v1,v)) {
+			System.out.println("Prueba correcta");
+		}else {
+			System.out.println("Prueba incorrecta");
+		}
+	}
 	public static void main(String [] args){
 		//pruebaDistribucion();
 		//pruebaSeleccion();
-		pruebaInsercion();
+		//pruebaInsercion();
+		pruebaIntercambio();
 	}
 }

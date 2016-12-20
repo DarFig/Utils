@@ -41,6 +41,7 @@ public class Ordenacion {
 			v[iMenor] = dato;
 		}
 	}
+	
 	//=====================================================
 	//insercion
 	//=====================================================
@@ -83,4 +84,44 @@ public class Ordenacion {
 			v[j] = dato;
 		}
 	}
+	
+	//=====================================================
+	//intercambio directo
+	//=====================================================
+	/**
+	* Ordenación en coste asintótico cuadrático en el número de datos
+	* @param v T
+	*/
+	public static <T extends Comparable<T>> void intercambio (T v[]){
+		for(int i = 0; i < v.length; i++){
+			for(int j = 0; j != v.length-1-i; j++){
+				if(v[j+1].compareTo(v[j])<=0){
+					T dato = v[j];
+					v[j] = v[j+1];
+					v[j+1] = dato;
+				}
+			}
+		}
+	}
+		
+	/**
+	* Ordenación en coste asintótico cuadrático en el número de datos
+	* @param v int
+	*/
+	public static void intercambio (int v[]){
+		for(int i = 0; i < v.length; i++){
+			for(int j = 0; j != v.length-1-i; j++){
+				if(v[j+1]<=v[j]){
+					int dato = v[j];
+					v[j] = v[j+1];
+					v[j+1] = dato;
+				}
+			}
+		}
+	}
+	
+	
 }
+	
+
+
