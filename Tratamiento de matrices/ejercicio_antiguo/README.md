@@ -1,0 +1,1 @@
+Antiguo ejercicio resuelto de tratamiento de matrices.
