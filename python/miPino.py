@@ -5,9 +5,14 @@
 # entrdas: tamaño del pino a dibujar
 # salida: dibuja un pino en pantalla
 #---------------------------
-
-altura_pino = input("Altura del pino: ")
-altura_pino = int(altura_pino)
+while True:
+    try:
+        altura_pino = int(input("Altura del pino: "))
+        break
+    except ValueError:
+        print("Esto no es un numero")
+    except:
+        print("Un error desconocido ha ocurrido")
 
 #espacios en el dibujo
 huecos = altura_pino - 1
