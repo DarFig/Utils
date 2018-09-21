@@ -1,5 +1,8 @@
 #-*- coding: utf-8 -*-
+
 from os import sys
+
+from heapq import heappush, heappop, heapify
 
 def seleccion(lista):
     for i in range(len(lista)):
@@ -33,6 +36,20 @@ def intercambio(lista):
             j+=1
     return lista
 
+def heapsort(lista):
+    monticulo = []
+    for i in lista:
+        heappush(monticulo, i)
+    
+    return [heappop(monticulo) for i in range(len(monticulo))]  
+
+def heapsort2(lista):
+    n = len(lista)
+    heapify(lista)   
+
+    return [heappop(lista) for i in range(n)] 
+
+
 
 #if sys.version[0] == '2':
 #    entrada = raw_input('Introduzca una lista de numeros separados por espacios:\n').strip()
@@ -50,3 +67,9 @@ print('inserción   %s' % insercion(l))
 
 l = lista
 print('intercambio %s' % intercambio(l))
+
+l = lista
+print('heapsort    %s' % heapsort(l))
+
+l = lista
+print('heapsort2   %s' % heapsort2(l))
