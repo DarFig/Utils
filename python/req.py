@@ -38,7 +38,6 @@ for linea in lineas:
     url1 = re.sub('[\{\}()]','', url1)
     url1 = url1.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
     url1 = url1.replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U')
-    print(url1)
     url += url1
 
 
@@ -182,6 +181,8 @@ for linea in lineas:
         fecha = fecha.replace(']','')
         fecha = fecha.replace('[','')
         fecha = fecha.replace('"','')
+    
+    fecha = re.sub('-$','',fecha)
     if (organizacion is ""):
         organizacion = organizacion1
 
