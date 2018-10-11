@@ -189,7 +189,7 @@ for linea in lineas:
     
     formatoaux = "" 
     while(len(formatos)>0):
-        formatoaux += formatos.pop()
+        formatoaux =formatoaux + "," + formatos.pop()
 
 
     
