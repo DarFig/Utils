@@ -2,7 +2,9 @@ import requests
 import re
 import xlsxwriter
 
-
+#import goslate
+#gs = goslate.Goslate(service_urls=['http://translate.google.de'])
+#from googletrans import Translator
 titulo = ""
 last_update = ""
 
@@ -57,6 +59,13 @@ for linea in lineas:
         cod = cod.replace(']','')
         cod = cod.replace('\'','')
         url1 = url1 + cod + '_' + cod
+    cod = re.findall('(^comarca)|(^municipio)', url1)
+    url1 = re.sub('(^comarca)|(^municipio)','', url1)
+    if (cod):
+        cod = str(cod).replace('[','')
+        cod = cod.replace(']','')
+        cod = cod.replace('\'','')
+        url1 = 'datos-'+ cod + url1
     url += url1
 
 
@@ -204,7 +213,7 @@ for linea in lineas:
     fecha = re.sub('-$','',fecha)
     if (organizacion is ""):
         organizacion = organizacion1
-
+    organizacion = organizacion.replace('-',' ')
     
     formatoaux = "" 
     while(len(formatos)>0):
@@ -212,7 +221,17 @@ for linea in lineas:
 
 
     
-
+    #translator = Translator()
+    
+    #titulo = translator.translate(titulo, src='es', dest='en').text
+    #descripcion = translator.translate(descripcion, src='es', dest='en').text
+    #last_update = translator.translate(last_update, src='es', dest='en').text
+    #organizacion = translator.translate(organizacion, src='es', dest='en').text
+    
+    #titulo = gs.translate(titulo, 'en', 'es')
+    #descripcion = gs.translate(descripcion, 'en', 'es')
+    #last_update = gs.translate(last_update, 'en', 'es')
+    #organizacion = gs.translate(organizacion, 'en', 'es')
     worksheet.write('A'+str(index_excel), titulo)
     worksheet.write('B'+str(index_excel), descripcion)
     worksheet.write('C'+str(index_excel), last_update)
