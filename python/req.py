@@ -33,11 +33,30 @@ for linea in lineas:
     url1 = titulo.lower()
     url1 = url1.replace('.', '')
     url1 = url1.replace(',', '')
+    url1 = url1.replace('(%)', '')
+    url1 = url1.replace('%', '')
+    url1 = url1.replace(': ', '-')
+    url1 = url1.replace(':', '-')
+    url1 = url1.replace('/', '-')
+    url1 = url1.replace(' ( ', '-')
+    url1 = url1.replace(' ) ', '-')
     url1 = url1.replace(' ', '-')
+    url1 = url1.replace('INAGA CAZA ', '')
+    url1 = url1.replace('INAGA ', '')
+    url1 = url1.replace('ñ', 'ny')
+    url1 = url1.replace('º', '')
     url1 = re.sub('-$','', url1)
     url1 = re.sub('[\{\}()]','', url1)
     url1 = url1.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u')
     url1 = url1.replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U')
+    cod = re.findall('(c[0-9][0-9]_d[0-9]+)$', url1)
+    url1 = re.sub('(c[0-9][0-9]_d[0-9]+)$','', url1)
+    url1 = re.sub('rss-de-','rss-', url1)
+    if (cod):
+        cod = str(cod).replace('[','')
+        cod = cod.replace(']','')
+        cod = cod.replace('\'','')
+        url1 = url1 + cod + '_' + cod
     url += url1
 
 
