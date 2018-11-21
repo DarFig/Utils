@@ -18,11 +18,12 @@ class Reader():
             self.__documents = confFile.readline().split(';')
          
         self.listFiles = []
-        
+        self.__filesNumber = len(self.listFiles)
 
     def openAllFiles(self):
         for i in range(0,len(self.__documents)):
             self.listFiles.insert(i, abrir(self.__documents[i], encoding="utf-8")) 
+        self.__filesNumber = len(self.listFiles)
         return self.listFiles
 
     def closeAllFile(self):
@@ -31,9 +32,11 @@ class Reader():
 
     def getLines(self,index):
         return self.listFiles[index].readlines()
+    
+    def getFilesNumber(self):
+        return self.__filesNumber
 
 
 
     
-
 
