@@ -12,17 +12,15 @@ else:
 
 
     
-class Reader():
-    def __init__(self, file_route):
-        with abrir(file_route, encoding="utf-8") as confFile:
-            self.__documents = confFile.readline().split(';')
-         
+class Writer():
+    def __init__(self):
+        self.__documents = ['./intermedio.txt','./final.txt']      
         self.listFiles = []
         self.__filesNumber = len(self.listFiles)
 
     def openAllFiles(self):
         for i in range(0,len(self.__documents)):
-            self.listFiles.insert(i, abrir(self.__documents[i], encoding="utf-8")) 
+            self.listFiles.insert(i, abrir(self.__documents[i],"w", encoding="utf-8")) 
         self.__filesNumber = len(self.listFiles)
         return self.listFiles
 
@@ -30,13 +28,8 @@ class Reader():
         for file in self.listFiles:
             file.close()
 
-    def getLines(self,index):
-        return self.listFiles[index].readlines()
+    def setLine(self,index, line):
+        return self.listFiles[index].write(line)
     
     def getFilesNumber(self):
         return self.__filesNumber
-
-
-
-    
-
