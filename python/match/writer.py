@@ -14,7 +14,7 @@ else:
     
 class Writer():
     def __init__(self):
-        self.__documents = ['./intermedio.txt','./final.txt']      
+        self.__documents = ['./intermedio.txt', './entYpropOWL.txt','./entYpropXML.txt','./final.txt']      
         self.listFiles = []
         self.__filesNumber = len(self.listFiles)
 
