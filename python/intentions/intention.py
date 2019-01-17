@@ -24,6 +24,9 @@ class EngineClass():
     def __inText(self, token):
         return token in self.__text
 
+    def __getEntities(self, token1, token2):
+        return self.__text.split(token1)[1].split(token2)[0]
+
     
 
 
