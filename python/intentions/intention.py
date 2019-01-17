@@ -1,5 +1,6 @@
-
-class Engine():
+# -*- coding: utf-8 -*-
+class EngineClass():
+ 
     def __init__(self, text = "", tokenList=[]):
         self.__text = text
         self.__tokenList = tokenList
@@ -12,11 +13,11 @@ class Engine():
 
     def run(self, text):
         self.__text = text
-        if __inText(__tokenList[0]) and __inText(__tokenList[1])  and __inText(__tokenList[2]):
+        if self.__inText(self.__tokenList[0]) and self.__inText(self.__tokenList[1])  and self.__inText(self.__tokenList[2]):
+            return ""
+        for i in range(1, len(self.__tokenList)):
+            if self.__inText(self.__tokenList[0]) and self.__inText(self.__tokenList[i]):
                 return ""
-            for i in range(1, len(__tokenList)):
-                if __inText(__tokenList[0]) and __inText(__tokenList[i])
-                    return ""
             
 
     # private
