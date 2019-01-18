@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
-class EngineClass():
-    
+class EntitiesEngine():
+
+    # ***
+    # Clase para separar por tokens una frase dada y extraer enidades.
+    # 
+    # ***
 
     def __init__(self, text = "", tokenList=[]):
         self.__text = text
