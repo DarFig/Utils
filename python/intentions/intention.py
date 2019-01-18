@@ -4,17 +4,34 @@ class EntitiesEngine():
     # ***
     # Clase para separar por tokens una frase dada y extraer enidades.
     # 
+    # init variables:
+    #   - text:String "Cadena a tratar"
+    #   - tokenList "listado de tokens, separadores"
+    #   - markers "listado de marcadores entre tokens, por defecto [". ", " .",".","-"]"
+    # 
+    # medodos públicos:
+    #   - setText "permite cambiar la variable text" 
+    #   - getText "permite obtener la variable text" return:String
+    #   - run "introduce los marcadores en text según los tokens" return:String
+    #   - getEntities "devuelve una lista con las entidades extraidas de text" return:list(array)
+    # 
+    # 
+    # 
+    # 
+    # 
+    # 
+    # 
     # ***
 
-    def __init__(self, text = "", tokenList=[]):
+    def __init__(self, text = "", tokenList=[], markers = [". ", " .",".","-"]):
         self.__text = text
         self.__tokenList = tokenList
-        self.__markers = [". ", " .",".","-"]
+        self.__markers = markers
 
-    def settext(self, text):
+    def setText(self, text):
         self.__text = text
 
-    def gettext(self, text):
+    def getText(self, text):
         return self.__text
 
     def run(self, text=""):
