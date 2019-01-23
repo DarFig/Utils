@@ -63,11 +63,11 @@ class EntitiesEngine():
                 for j in range(i+1, len( self.__tokenList)):         
                     if self.__inText(self.__tokenList[j]):
                         encontrado = True
-                        listEntities.append(self.__getEntity(i, j))
+                        listEntities.append(self.__getEntity(i, j).strip())
                         i = j
                         break
                 if not encontrado:
-                    listEntities.append(self.__getEntity(i, i+1))
+                    listEntities.append(self.__getEntity(i, i+1).strip())
                 encontrado = False
         return listEntities
             
