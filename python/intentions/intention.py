@@ -35,12 +35,14 @@ class EntitiesEngine():
         return self.__text
 
     def run(self, text=""):
-        if text is not "":
+        if not text is "":
             self.__text = text
-
-        for i in range(1, len(self.__tokenList)):
+        
+        j = 0
+        for i in range(0, len(self.__tokenList)):
             if  self.__inText(self.__tokenList[i]):
-                break
+                j += 1       
+        if j == 1:
             return self.__text
 
         for i in range(2, len(self.__tokenList)):
