@@ -38,21 +38,20 @@ class EntitiesEngine():
         if not text is "":
             self.__text = text
         
-        j = 0
-        for i in range(0, len(self.__tokenList)):
-            if  self.__inText(self.__tokenList[i]):
-                j += 1       
-        if j == 1:
-            return self.__text
-
-        for i in range(2, len(self.__tokenList)):
-            if self.__inText(self.__tokenList[0]) and self.__inText(self.__tokenList[1])  and self.__inText(self.__tokenList[i]):
-                return self.__text
-            if self.__inText(self.__tokenList[0]) and self.__inText(self.__tokenList[i-1])  and self.__inText(self.__tokenList[i]):   
-                return self.__text
+        # 3 match case
+        for i in range(1, len(self.__tokenList)):
+            for j in range(2, len(self.__tokenList)):
+                if i != j :         
+                    if self.__inText(self.__tokenList[0]) and self.__inText(self.__tokenList[i])  and self.__inText(self.__tokenList[j]):   
+                        return self.__text
+        # 2 match
         for i in range(1, len(self.__tokenList)):
             if self.__inText(self.__tokenList[0]) and self.__inText(self.__tokenList[i]):
                 return  self.__retText(0,i) + self.__retText(i,i+1)
+        
+        # default 
+        return self.__text
+
 
     def getEntities(self, text=""):
         if text is not "":
