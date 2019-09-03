@@ -37,6 +37,16 @@ impl <T> DLList<T> {
         self.tail = ttail;
     }
 
-    
+    pub fn pop(&mut self, data: T) -> Option<T> {
+        self.tail.take().map(|node| {
+            let tail = *tail;
+            self.tail = tail.left;
+            self.tail.right = None;
+            if self.tail.is_none() {
+                self.head = ptr::null_mut();
+            }
+            tail.data
+        })
+    }
 
 }
