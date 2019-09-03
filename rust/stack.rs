@@ -8,7 +8,7 @@ pub struct Stack<T>{
 }
 
 struct Node<T> {
-    element: T,
+    data: T,
     next: Link<T>,
 }
 
@@ -17,9 +17,9 @@ impl<T> Stack<T> {
         Stack {top: None}
     }
 
-    pub fn push(&mut self, element: T) {
+    pub fn push(&mut self, data: T) {
         let node = Box::new(Node {
-        element: element,
+        data: data,
         next: self.top.take(),
         }); 
         self.top = Some(node);
@@ -28,7 +28,7 @@ impl<T> Stack<T> {
     pub fn pop(&mut self) -> Option<T> {
         self.top.take().map(|node| {
             self.top = node.next;
-            node.element
+            node.data
         })
     }
 
